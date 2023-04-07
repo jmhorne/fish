@@ -81,7 +81,7 @@ func (g *Game) Update() error {
 	for i, f := range g.fishes {
 		f.Update()
 		if g.player.TouchesObject(f) {
-			if g.player.IsDead() {
+			if !g.player.IsDead() {
 				g.score += f.GetSize()
 				g.fishes = append(g.fishes[:i], g.fishes[i+1:]...)
 
